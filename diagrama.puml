@@ -1,0 +1,113 @@
+@startuml gestor_streaming
+title Netflix (Gestión de contenidos)
+
+interface Reproducible {
+  + reproducir(): void
+  + mostrarInfo(): void
+}
+
+interface Temporal {
+  + calcularDuracionTotal(): int
+}
+
+abstract class ElementoCatalogo {
+  # id: string
+  ---
+  + getId(): string
+}
+
+abstract class ContenidoCatalogado {
+  # titulo: string
+  # genero: string
+  ---
+  + getTitulo(): string
+  + getGenero(): string
+  + {abstract} mostrarInfo(): void
+}
+
+class GestorContenidos {
+  - contenidos: <ContenidoCatalogado>
+  ---
+  + agregarContenido(c: ContenidoCatalogado): void
+  + operator+(c: ContenidoCatalogado): void
+  + eliminarContenido(id: string): void
+  + listarContenidos(): void
+  + listarContenidosPorGenero(g: string): void
+  + buscarPorId(id: string): void
+  + buscarPorTitulo(t: string): void
+}
+
+class Pelicula {
+  - anio: int
+  - duracion: int
+  ---
+  + mostrarInfo(): void
+  + reproducir(): void
+  + calcularDuracionTotal(): int
+}
+
+class Serie {
+  - temporadas: <Temporada>
+  - anio: int
+  ---
+  + mostrarInfo(): void
+  + calcularDuracionTotal(): int
+}
+
+class Juego {
+  - offline: boolean
+  - multijugador: boolean
+  - dificultad: Dificultad
+  ---
+  + mostrarInfo(): void
+  + reproducir(): void
+}
+
+enum Dificultad {
+  FACIL
+  MEDIA
+  DIFICIL
+}
+
+class Temporada {
+  - numTemporada: int
+  - episodios: <Episodio>
+  ---
+  + mostrarInfo(): void
+  + calcularDuracionTotal(): int
+}
+
+class Episodio {
+  - titulo: string
+  - duracion: int
+  ---
+  + reproducir(): void
+  + calcularDuracionTotal(): int
+  + mostrarInfo(): void
+}
+
+' Jerarquía principal
+ElementoCatalogo <|-- ContenidoCatalogado
+ContenidoCatalogado <|-- Pelicula
+ContenidoCatalogado <|-- Serie
+ContenidoCatalogado <|-- Juego
+
+' Interfaces
+ElementoCatalogo ..|> Reproducible
+Episodio ..|> Reproducible
+Temporada ..|> Reproducible
+
+Pelicula ..|> Temporal
+Serie ..|> Temporal
+Temporada ..|> Temporal
+Episodio ..|> Temporal
+
+' Composiciones
+GestorContenidos "1" *-- "*" ContenidoCatalogado
+Serie "1" *-- "*" Temporada
+Temporada "1" *-- "*" Episodio
+
+' Dependencia
+Juego ..> Dificultad
+
+@enduml
