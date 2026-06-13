@@ -1,0 +1,17 @@
+# Compiled binaries
+bin/
+*.o
+*.out
+gestor_streaming
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# PlantUML output
+*.png
+*.svg
