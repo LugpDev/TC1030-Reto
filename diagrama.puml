@@ -10,26 +10,22 @@ interface Temporal {
   + calcularDuracionTotal(): int
 }
 
-abstract class ElementoCatalogo {
+abstract class Contenido {
   # id: string
-  ---
-  + getId(): string
-}
-
-abstract class ContenidoCatalogado {
   # titulo: string
   # genero: string
   ---
+  + getId(): string
   + getTitulo(): string
   + getGenero(): string
   + {abstract} mostrarInfo(): void
 }
 
 class GestorContenidos {
-  - contenidos: <ContenidoCatalogado>
+  - contenidos: <Contenido>
   ---
-  + agregarContenido(c: ContenidoCatalogado): void
-  + operator+(c: ContenidoCatalogado): void
+  + agregarContenido(c: Contenido): void
+  + operator+(c: Contenido): void
   + eliminarContenido(id: string): void
   + listarContenidos(): void
   + listarContenidosPorGenero(g: string): void
@@ -50,6 +46,7 @@ class Serie {
   - temporadas: <Temporada>
   - anio: int
   ---
+  + reproducir(): void
   + mostrarInfo(): void
   + calcularDuracionTotal(): int
 }
@@ -73,6 +70,7 @@ class Temporada {
   - numTemporada: int
   - episodios: <Episodio>
   ---
+  + reproducir(): void
   + mostrarInfo(): void
   + calcularDuracionTotal(): int
 }
@@ -87,13 +85,12 @@ class Episodio {
 }
 
 ' Jerarquía principal
-ElementoCatalogo <|-- ContenidoCatalogado
-ContenidoCatalogado <|-- Pelicula
-ContenidoCatalogado <|-- Serie
-ContenidoCatalogado <|-- Juego
+Contenido <|-- Pelicula
+Contenido <|-- Serie
+Contenido <|-- Juego
 
 ' Interfaces
-ElementoCatalogo ..|> Reproducible
+Contenido ..|> Reproducible
 Episodio ..|> Reproducible
 Temporada ..|> Reproducible
 
@@ -103,7 +100,7 @@ Temporada ..|> Temporal
 Episodio ..|> Temporal
 
 ' Composiciones
-GestorContenidos "1" *-- "*" ContenidoCatalogado
+GestorContenidos "1" *-- "*" Contenido
 Serie "1" *-- "*" Temporada
 Temporada "1" *-- "*" Episodio
 
