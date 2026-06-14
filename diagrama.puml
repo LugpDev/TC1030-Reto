@@ -25,13 +25,14 @@ abstract class Contenido {
 class GestorContenidos {
   - contenidos: <Contenido>
   ---
+  + GestorContenidos()
   + agregarContenido(c: Contenido): void
-  + operator+(c: Contenido): void
+  + buscarPorId(id: string): void
+  + buscarPorTitulo(t: string): void
   + eliminarContenido(id: string): void
   + listarContenidos(): void
   + listarContenidosPorGenero(g: string): void
-  + buscarPorId(id: string): void
-  + buscarPorTitulo(t: string): void
+  + operator+(c: Contenido): void
 }
 
 class Pelicula {
