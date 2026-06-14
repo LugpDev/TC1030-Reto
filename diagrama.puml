@@ -38,9 +38,10 @@ class Pelicula {
   - anio: int
   - duracion: int
   ---
+  + Pelicula(_id: string, _titulo: string, _genero: string, _anio: int, _duracion: int)
+  + calcularDuracionTotal(): int
   + mostrarInfo(): void
   + reproducir(): void
-  + calcularDuracionTotal(): int
 }
 
 class Serie {
