@@ -24,8 +24,8 @@ void Juego::mostrarInfo()
   case Dificultad::FACIL:
     cout << "Facil";
     break;
-  case Dificultad::MEDIO:
-    cout << "Medio";
+  case Dificultad::MEDIA:
+    cout << "Media";
     break;
   case Dificultad::DIFICIL:
     cout << "Dificil";

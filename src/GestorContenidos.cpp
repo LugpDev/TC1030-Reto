@@ -41,7 +41,7 @@ static Genero parseGenero(const string &s)
 static Dificultad parseDificultad(const string &s)
 {
   if (s == "FACIL") return Dificultad::FACIL;
-  if (s == "MEDIO") return Dificultad::MEDIO;
+  if (s == "MEDIA") return Dificultad::MEDIA;
   return Dificultad::DIFICIL;
 }
 

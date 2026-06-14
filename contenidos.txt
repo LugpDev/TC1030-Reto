@@ -10,7 +10,7 @@
 #   EPISODIO titulo | duracion(min)
 #
 # JUEGO
-# id | titulo | genero | offline(0/1) | multijugador(0/1) | dificultad(FACIL|MEDIO|DIFICIL)
+# id | titulo | genero | offline(0/1) | multijugador(0/1) | dificultad(FACIL|MEDIA|DIFICIL)
 #
 # Géneros disponibles: ACCION, COMEDIA, DRAMA, FANTASIA, CIENCIA_FICCION
 # -----------------------------------------------------------------------
@@ -81,4 +81,4 @@ JUEGO
 J004 | Dark Souls | ACCION | 1 | 0 | DIFICIL
 
 JUEGO
-J005 | FIFA 25 | COMEDIA | 0 | 1 | MEDIO
+J005 | FIFA 25 | COMEDIA | 0 | 1 | MEDIA

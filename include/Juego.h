@@ -6,7 +6,7 @@
 enum class Dificultad
 {
   FACIL,
-  MEDIO,
+  MEDIA,
   DIFICIL
 };
 
