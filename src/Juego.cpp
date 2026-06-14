@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Juego::Juego(string _id, string _titulo, string _genero, bool _offline, bool _multijugador, Dificultad _dificultad) : Contenido(_id, _titulo, _genero)
+Juego::Juego(string _id, string _titulo, Genero _genero, bool _offline, bool _multijugador, Dificultad _dificultad) : Contenido(_id, _titulo, _genero)
 {
   offline = _offline;
   multijugador = _multijugador;
@@ -15,7 +15,7 @@ void Juego::mostrarInfo()
 {
   cout << "ID: " << id << endl;
   cout << "Titulo: " << titulo << endl;
-  cout << "Genero: " << genero << endl;
+  cout << "Genero: " << generoToString(genero) << endl;
   cout << "Offline: " << (offline ? "Si" : "No") << endl;
   cout << "Multijugador: " << (multijugador ? "Si" : "No") << endl;
   cout << "Dificultad: ";

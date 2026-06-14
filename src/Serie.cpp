@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Serie::Serie(string _id, string _titulo, string _genero, int _anio) : Contenido(_id, _titulo, _genero)
+Serie::Serie(string _id, string _titulo, Genero _genero, int _anio) : Contenido(_id, _titulo, _genero)
 {
   anio = _anio;
 }
@@ -33,7 +33,7 @@ void Serie::mostrarInfo()
 {
   cout << "ID: " << id << endl;
   cout << "Título: " << titulo << endl;
-  cout << "Género: " << genero << endl;
+  cout << "Género: " << generoToString(genero) << endl;
   cout << "Año: " << anio << endl;
   cout << "Duración total: " << calcularDuracionTotal() << " minutos" << endl;
 }

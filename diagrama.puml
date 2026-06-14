@@ -13,12 +13,12 @@ interface ITemporal {
 abstract class Contenido {
   # id: string
   # titulo: string
-  # genero: string
+  # genero: Genero
   ---
-  + Contenido(_id: string, _titulo: string, _genero: string)
+  + Contenido(_id: string, _titulo: string, _genero: Genero)
   + getId(): string
   + getTitulo(): string
-  + getGenero(): string
+  + getGenero(): Genero
   + {abstract} mostrarInfo(): void
 }
 
@@ -31,7 +31,7 @@ class GestorContenidos {
   + buscarPorTitulo(t: string): void
   + eliminarContenido(id: string): void
   + listarContenidos(): void
-  + listarContenidosPorGenero(g: string): void
+  + listarContenidosPorGenero(g: Genero): void
   + operator+(c: Contenido): void
 }
 
@@ -39,7 +39,7 @@ class Pelicula {
   - anio: int
   - duracion: int
   ---
-  + Pelicula(_id: string, _titulo: string, _genero: string, _anio: int, _duracion: int)
+  + Pelicula(_id: string, _titulo: string, _genero: Genero, _anio: int, _duracion: int)
   + calcularDuracionTotal(): int
   + mostrarInfo(): void
   + reproducir(): void
@@ -49,7 +49,7 @@ class Serie {
   - temporadas: <Temporada>
   - anio: int
   ---
-  + Serie(_id: string, _titulo: string, _genero: string, _anio: int)
+  + Serie(_id: string, _titulo: string, _genero: Genero, _anio: int)
   + agregarTemporada(t: Temporada): void
   + operator+(t: Temporada): void
   + calcularDuracionTotal(): int
@@ -62,7 +62,7 @@ class Juego {
   - multijugador: boolean
   - dificultad: Dificultad
   ---
-  + Juego(_id: string, _titulo: string, _genero: string, _offline: boolean, _multijugador: boolean, _dificultad: Dificultad)
+  + Juego(_id: string, _titulo: string, _genero: Genero, _offline: boolean, _multijugador: boolean, _dificultad: Dificultad)
   + mostrarInfo(): void
   + reproducir(): void
 }
@@ -71,6 +71,14 @@ enum Dificultad {
   FACIL
   MEDIA
   DIFICIL
+}
+
+enum Genero {
+  ACCION
+  COMEDIA
+  DRAMA
+  FANTASIA
+  CIENCIA_FICCION
 }
 
 class Temporada {
@@ -119,6 +127,11 @@ Serie "1" *-- "*" Temporada
 Temporada "1" *-- "*" Episodio
 
 ' Dependencia
+Contenido ..> Genero
+GestorContenidos ..> Genero
+Pelicula ..> Genero
+Serie ..> Genero
+Juego ..> Genero
 Juego ..> Dificultad
 
 @enduml

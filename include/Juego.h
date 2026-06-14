@@ -18,7 +18,7 @@ private:
   Dificultad dificultad;
 
 public:
-  Juego(string _id, string _titulo, string _genero, bool _offline, bool _multijugador, Dificultad _dificultad);
+  Juego(string _id, string _titulo, Genero _genero, bool _offline, bool _multijugador, Dificultad _dificultad);
   void mostrarInfo();
   void reproducir();
 };

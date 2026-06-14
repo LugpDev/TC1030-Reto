@@ -2,6 +2,7 @@
 #define CONTENIDO_H
 
 #include <string>
+#include "Genero.h"
 #include "./IReproducible.h"
 
 using namespace std;
@@ -11,13 +12,13 @@ class Contenido : public IReproducible
 protected:
   string id;
   string titulo;
-  string genero;
+  Genero genero;
 
 public:
-  Contenido(string _id, string _titulo, string _genero);
+  Contenido(string _id, string _titulo, Genero _genero);
   string getId();
   string getTitulo();
-  string getGenero();
+  Genero getGenero();
   virtual void mostrarInfo() = 0;
 };
 

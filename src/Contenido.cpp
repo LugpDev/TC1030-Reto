@@ -1,6 +1,6 @@
 #include "../include/Contenido.h"
 
-Contenido::Contenido(string _id, string _titulo, string _genero)
+Contenido::Contenido(string _id, string _titulo, Genero _genero)
 {
   id = _id;
   titulo = _titulo;
@@ -17,7 +17,7 @@ string Contenido::getTitulo()
   return titulo;
 }
 
-string Contenido::getGenero()
+Genero Contenido::getGenero()
 {
   return genero;
 }

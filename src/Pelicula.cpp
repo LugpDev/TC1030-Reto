@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Pelicula::Pelicula(string _id, string _titulo, string _genero, int _anio, int _duracion)
+Pelicula::Pelicula(string _id, string _titulo, Genero _genero, int _anio, int _duracion)
     : Contenido(_id, _titulo, _genero)
 {
   anio = _anio;
@@ -20,7 +20,7 @@ void Pelicula::mostrarInfo()
 {
   cout << "ID: " << id << endl;
   cout << "Título: " << titulo << endl;
-  cout << "Género: " << genero << endl;
+  cout << "Género: " << generoToString(genero) << endl;
   cout << "Año: " << anio << endl;
   cout << "Duración: " << calcularDuracionTotal() << " minutos" << endl;
 }

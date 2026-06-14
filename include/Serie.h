@@ -16,7 +16,7 @@ private:
   int anio;
 
 public:
-  Serie(string _id, string _titulo, string _genero, int _anio);
+  Serie(string _id, string _titulo, Genero _genero, int _anio);
   void agregarTemporada(Temporada *t);
   void operator+(Temporada *t);
   int calcularDuracionTotal();
