@@ -1,32 +1,58 @@
 # TC1030 — Gestor de Streaming
 
-Simulador de catálogo de contenido (estilo Netflix) para el curso TC1030 (POO con C++) del Tec de Monterrey.
-El sistema permite gestionar películas, series y juegos mediante polimorfismo y herencia.
-
----
-
-## Estado actual
-
-> **Fase de diseño.** El diagrama de clases (`diagrama.puml`) es la fuente de verdad de la arquitectura.
-> Los directorios `include/` y `src/` están vacíos — la implementación aún no ha comenzado.
+Simulador de catálogo de contenido estilo Netflix para el curso TC1030 (POO con C++) del Tec de Monterrey.
+El sistema permite gestionar películas, series y juegos mediante herencia, polimorfismo, interfaces y clases abstractas.
 
 ---
 
 ## Arquitectura
 
-El diagrama completo está en `diagrama.puml`.
+El diagrama completo está en `diagrama.puml` (renderizable con PlantUML).
+
+### Jerarquía de clases
+
+```
+IReproducible          ITemporal
+     |                     |
+  Contenido  ──────────────┘
+  (abstracta)
+  /    |    \
+Pelicula  Serie  Juego
+              |
+          Temporada
+              |
+           Episodio
+```
+
+| Clase | Descripción |
+|---|---|
+| `Contenido` | Clase abstracta base con `id`, `titulo`, `genero` |
+| `Pelicula` | Película con `anio` y `duracion` |
+| `Serie` | Serie compuesta de `Temporada`s |
+| `Temporada` | Temporada compuesta de `Episodio`s |
+| `Episodio` | Episodio con `titulo` y `duracion` |
+| `Juego` | Juego con `offline`, `multijugador` y `dificultad` |
+| `GestorContenidos` | Catálogo polimórfico de `Contenido*` |
+| `IReproducible` | Interfaz: `reproducir()`, `mostrarInfo()` |
+| `ITemporal` | Interfaz: `calcularDuracionTotal()` |
+
+### Enums
+
+- `Genero`: `ACCION`, `COMEDIA`, `DRAMA`, `FANTASIA`, `CIENCIA_FICCION`
+- `Dificultad`: `FACIL`, `MEDIA`, `DIFICIL`
 
 ---
 
 ## Estructura del repositorio
 
 ```
-include/        # Headers (.h) — uno por clase
-src/            # Implementaciones (.cpp) — uno por clase
-bin/            # Objetos compilados (generado por make)
-main.cpp        # Punto de entrada
-Makefile        # Build system
-diagrama.puml   # Diagrama de clases (PlantUML)
+include/          # Headers (.h) — uno por clase
+src/              # Implementaciones (.cpp) — uno por clase
+bin/              # Objetos compilados (generado por make)
+main.cpp          # Punto de entrada y demostración de funcionalidades
+Makefile          # Build system
+diagrama.puml     # Diagrama de clases (PlantUML)
+contenidos.txt    # Datos de ejemplo cargados al inicio
 ```
 
 ---
@@ -43,56 +69,43 @@ make clean  # elimina binarios generados
 
 ---
 
-## Convenciones de código
+## Funcionalidades
 
-- **Identificadores en español**, exactamente como aparecen en el diagrama
-- **Un `.h` y un `.cpp` por clase**, ubicados en `include/` y `src/` respectivamente
-- Memoria manual con `new` / `delete` — sin smart pointers
-- Compilar con `make` antes de hacer push para verificar que no hay errores
+- Carga de contenidos desde archivo (`contenidos.txt`)
+- Listar todos los contenidos del catálogo
+- Agregar contenidos con `operator+` (`gestor + contenido`)
+- Buscar por ID o título (lanza excepción si no se encuentra)
+- Filtrar por género
+- Reproducir cualquier contenido polimórficamente
+- Calcular duración total de películas, series y temporadas
+- Eliminar contenido por ID
 
 ---
 
-## Reglas
+## Convenciones de código
 
-### Nombre de los archivos
+- Identificadores en español, exactamente como en el diagrama
+- Un `.h` y un `.cpp` por clase, en `include/` y `src/` respectivamente
+- Memoria manual con `new` / `delete` — sin smart pointers
+- Compilar con `make` antes de hacer push
 
-- **Archivos fuente**: Usar `PascalCase`
-  - Ejemplo: `Pelicula.cpp`, `Serie.cpp`, `GestorContenidos.cpp`
-- **Archivos de encabezado**: Mismo nombre que el archivo fuente con extensión `.h`
-  - Ejemplo: `Pelicula.h`, `Serie.h`, `GestorContenidos.h`
+### Nombrado
 
-### Creación de métodos
-
-- **Métodos**: Usar `camelCase`
-  - Ejemplo: `reproducir()`, `mostrarInfo()`, `calcularDuracionTotal()`
-- **Getters**: Prefijo `get` seguido del nombre del atributo
-  - Ejemplo: `getId()`, `getTitulo()`, `getGenero()`
-- **Setters**: Prefijo `set` seguido del nombre del atributo
-  - Ejemplo: `setId()`, `setTitulo()`, `setGenero()`
+- Archivos: `PascalCase` — `Pelicula.cpp`, `GestorContenidos.h`
+- Métodos: `camelCase` — `reproducir()`, `calcularDuracionTotal()`
+- Getters/Setters: prefijo `get`/`set` — `getId()`, `setTitulo()`
 
 ### Conventional Commits
-
-Seguimos la especificación de [Conventional Commits](https://www.conventionalcommits.org/) para los mensajes de commit.
-
-#### Estructura
 
 ```
 <tipo>[ámbito opcional]: <descripción>
 ```
 
-#### Tipos
-
-- **feat**: Nueva funcionalidad
-  - Ejemplo: `feat(Pelicula): agregar método calcularDuracionTotal`
-- **fix**: Corrección de errores
-  - Ejemplo: `fix(GestorContenidos): corregir búsqueda por título`
-- **docs**: Cambios en documentación
-  - Ejemplo: `docs(README): actualizar instrucciones de compilación`
-- **style**: Cambios de formato (espacios, punto y coma, etc.)
-  - Ejemplo: `style(Serie): formatear código según estándares`
-- **refactor**: Refactorización de código
-  - Ejemplo: `refactor(GestorContenidos): simplificar lógica de filtrado`
-- **test**: Agregar o modificar pruebas
-  - Ejemplo: `test(Pelicula): agregar pruebas unitarias`
-- **chore**: Cambios en herramientas, configuración, etc.
-  - Ejemplo: `chore(Makefile): actualizar flags de compilación`
+| Tipo | Uso |
+|---|---|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de errores |
+| `docs` | Cambios en documentación |
+| `style` | Formato (espacios, punto y coma, etc.) |
+| `refactor` | Refactorización sin cambio de comportamiento |
+| `chore` | Herramientas, configuración, Makefile |
