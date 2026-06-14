@@ -2,8 +2,9 @@
 #define PELICULA_H
 
 #include "./Contenido.h"
+#include "./ITemporal.h"
 
-class Pelicula : public Contenido
+class Pelicula : public Contenido, public ITemporal
 {
 private:
   int anio;
