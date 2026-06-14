@@ -13,7 +13,7 @@ protected:
   string genero;
 
 public:
-  Contenido(string id, string titulo, string genero);
+  Contenido(string _id, string _titulo, string _genero);
   string getId();
   string getTitulo();
   string getGenero();

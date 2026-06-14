@@ -15,7 +15,7 @@ abstract class Contenido {
   # titulo: string
   # genero: string
   ---
-  + Contenido(id: string, titulo: string, genero: string)
+  + Contenido(_id: string, _titulo: string, _genero: string)
   + getId(): string
   + getTitulo(): string
   + getGenero(): string
