@@ -32,6 +32,7 @@ class GestorContenidos {
   + eliminarContenido(id: string): void
   + listarContenidos(): void
   + listarContenidosPorGenero(g: Genero): void
+  + cargarDesdeArchivo(ruta: string): void
   + operator+(c: Contenido): void
 }
 

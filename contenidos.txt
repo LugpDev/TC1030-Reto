@@ -1,0 +1,84 @@
+# Catálogo de contenidos predefinidos
+# Formato por tipo:
+#
+# PELICULA
+# id | titulo | genero | anio | duracion(min)
+#
+# SERIE
+# id | titulo | genero | anio
+# TEMPORADA num_temporada
+#   EPISODIO titulo | duracion(min)
+#
+# JUEGO
+# id | titulo | genero | offline(0/1) | multijugador(0/1) | dificultad(FACIL|MEDIO|DIFICIL)
+#
+# Géneros disponibles: ACCION, COMEDIA, DRAMA, FANTASIA, CIENCIA_FICCION
+# -----------------------------------------------------------------------
+
+PELICULA
+P001 | Inception | CIENCIA_FICCION | 2010 | 148
+
+PELICULA
+P002 | El Rey Leon | FANTASIA | 1994 | 88
+
+PELICULA
+P003 | Interstellar | CIENCIA_FICCION | 2014 | 169
+
+PELICULA
+P004 | Superbad | COMEDIA | 2007 | 113
+
+PELICULA
+P005 | El Padrino | DRAMA | 1972 | 175
+
+SERIE
+S001 | Breaking Bad | DRAMA | 2008
+TEMPORADA 1
+  EPISODIO Piloto | 58
+  EPISODIO El gato en la bolsa | 48
+  EPISODIO ...Y el gato sale de la bolsa | 48
+  EPISODIO Cancer Man | 48
+  EPISODIO Gris | 48
+  EPISODIO Crocodilo | 48
+TEMPORADA 2
+  EPISODIO Seven Thirty-Seven | 48
+  EPISODIO Bajo la presion | 48
+  EPISODIO Picado | 48
+  EPISODIO Down | 48
+
+SERIE
+S002 | Stranger Things | CIENCIA_FICCION | 2016
+TEMPORADA 1
+  EPISODIO El chico desaparecido | 47
+  EPISODIO La barba de los ventriculos | 55
+  EPISODIO Holly Jolly | 51
+  EPISODIO El cuerpo | 51
+  EPISODIO La pulga y el acrobata | 46
+  EPISODIO El monstruo | 46
+  EPISODIO La bañera | 41
+  EPISODIO El mundo al revés | 52
+TEMPORADA 2
+  EPISODIO Mad Max | 48
+  EPISODIO Tigreados | 56
+  EPISODIO El pollito | 51
+
+SERIE
+S003 | La Casa de Papel | ACCION | 2017
+TEMPORADA 1
+  EPISODIO Un nuevo mundo | 70
+  EPISODIO Imperfecciones | 55
+  EPISODIO El regalo de Monet | 53
+
+JUEGO
+J001 | The Last of Us | ACCION | 0 | 0 | DIFICIL
+
+JUEGO
+J002 | Among Us | COMEDIA | 0 | 1 | FACIL
+
+JUEGO
+J003 | Minecraft | FANTASIA | 1 | 1 | FACIL
+
+JUEGO
+J004 | Dark Souls | ACCION | 1 | 0 | DIFICIL
+
+JUEGO
+J005 | FIFA 25 | COMEDIA | 0 | 1 | MEDIO

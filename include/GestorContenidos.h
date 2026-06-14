@@ -3,6 +3,7 @@
 
 #include "Contenido.h"
 
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -20,6 +21,7 @@ public:
   void eliminarContenido(string id);
   void listarContenidos();
   void listarContenidosPorGenero(Genero g);
+  void cargarDesdeArchivo(string ruta);
   void operator+(Contenido *c);
 };
 
