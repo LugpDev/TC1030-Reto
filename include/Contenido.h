@@ -2,10 +2,11 @@
 #define CONTENIDO_H
 
 #include <string>
+#include "./IReproducible.h"
 
 using namespace std;
 
-class Contenido
+class Contenido : public IReproducible
 {
 protected:
   string id;
