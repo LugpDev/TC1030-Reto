@@ -86,9 +86,10 @@ class Episodio {
   - titulo: string
   - duracion: int
   ---
-  + reproducir(): void
+  + getTitulo(): string
   + calcularDuracionTotal(): int
   + mostrarInfo(): void
+  + reproducir(): void
 }
 
 ' Jerarquía principal

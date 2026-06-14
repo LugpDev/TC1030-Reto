@@ -10,6 +10,11 @@ Episodio::Episodio(string _titulo, int _duracion)
   duracion = _duracion;
 }
 
+string Episodio::getTitulo()
+{
+  return titulo;
+}
+
 void Episodio::reproducir()
 {
   cout << "Reproduciendo episodio: " << titulo << endl;

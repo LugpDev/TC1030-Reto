@@ -16,9 +16,10 @@ private:
   int duracion; // En minutos
 public:
   Episodio(string _titulo, int _duracion);
-  void reproducir();
-  void mostrarInfo();
+  string getTitulo();
   int calcularDuracionTotal();
+  void mostrarInfo();
+  void reproducir();
 };
 
 #endif // EPISODIO_H
