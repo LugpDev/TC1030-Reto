@@ -1,12 +1,12 @@
 @startuml gestor_streaming
 title Netflix (Gestión de contenidos)
 
-interface Reproducible {
+interface IReproducible {
   + reproducir(): void
   + mostrarInfo(): void
 }
 
-interface Temporal {
+interface ITemporal {
   + calcularDuracionTotal(): int
 }
 
@@ -90,14 +90,14 @@ Contenido <|-- Serie
 Contenido <|-- Juego
 
 ' Interfaces
-Contenido ..|> Reproducible
-Episodio ..|> Reproducible
-Temporada ..|> Reproducible
+Contenido ..|> IReproducible
+Episodio ..|> IReproducible
+Temporada ..|> IReproducible
 
-Pelicula ..|> Temporal
-Serie ..|> Temporal
-Temporada ..|> Temporal
-Episodio ..|> Temporal
+Pelicula ..|> ITemporal
+Serie ..|> ITemporal
+Temporada ..|> ITemporal
+Episodio ..|> ITemporal
 
 ' Composiciones
 GestorContenidos "1" *-- "*" Contenido
