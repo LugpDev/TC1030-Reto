@@ -16,6 +16,7 @@ protected:
 
 public:
   Contenido(string _id, string _titulo, Genero _genero);
+  virtual ~Contenido() = default;
   string getId();
   string getTitulo();
   Genero getGenero();

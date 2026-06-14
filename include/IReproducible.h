@@ -4,6 +4,7 @@
 class IReproducible
 {
 public:
+  virtual ~IReproducible() = default;
   virtual void reproducir() = 0;
   virtual void mostrarInfo() = 0;
 };

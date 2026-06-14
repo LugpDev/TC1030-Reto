@@ -4,6 +4,7 @@
 class ITemporal
 {
 public:
+  virtual ~ITemporal() = default;
   virtual int calcularDuracionTotal() = 0;
 };
 
