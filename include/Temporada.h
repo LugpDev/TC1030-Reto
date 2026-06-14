@@ -17,6 +17,8 @@ private:
 
 public:
   Temporada(int _numTemporada);
+  int getNumTemporada();
+  vector<Episodio *> getEpisodios();
   void agregarEpisodio(Episodio *e);
   int calcularDuracionTotal();
   void eliminarEpisodio(string titulo);

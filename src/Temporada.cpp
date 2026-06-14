@@ -9,6 +9,16 @@ Temporada::Temporada(int _numTemporada)
   numTemporada = _numTemporada;
 }
 
+int Temporada::getNumTemporada()
+{
+  return numTemporada;
+}
+
+vector<Episodio *> Temporada::getEpisodios()
+{
+  return episodios;
+}
+
 void Temporada::agregarEpisodio(Episodio *e)
 {
   episodios.push_back(e);

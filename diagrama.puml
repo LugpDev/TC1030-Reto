@@ -77,6 +77,8 @@ class Temporada {
   - episodios: <Episodio>
   ---
   + Temporada(_numTemporada: int)
+  + getNumTemporada(): int
+  + getEpisodios(): <Episodio>
   + agregarEpisodio(e: Episodio): void
   + calcularDuracionTotal(): int
   + eliminarEpisodio(titulo: string): void
