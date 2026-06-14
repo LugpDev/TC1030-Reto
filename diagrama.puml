@@ -48,9 +48,12 @@ class Serie {
   - temporadas: <Temporada>
   - anio: int
   ---
-  + reproducir(): void
-  + mostrarInfo(): void
+  + Serie(_id: string, _titulo: string, _genero: string, _anio: int)
+  + agregarTemporada(t: Temporada): void
+  + operator+(t: Temporada): void
   + calcularDuracionTotal(): int
+  + mostrarInfo(): void
+  + reproducir(): void
 }
 
 class Juego {
