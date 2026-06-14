@@ -57,6 +57,7 @@ class Juego {
   - multijugador: boolean
   - dificultad: Dificultad
   ---
+  + Juego(_id: string, _titulo: string, _genero: string, _offline: boolean, _multijugador: boolean, _dificultad: Dificultad)
   + mostrarInfo(): void
   + reproducir(): void
 }
