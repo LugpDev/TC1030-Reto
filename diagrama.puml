@@ -73,6 +73,7 @@ class Temporada {
   - numTemporada: int
   - episodios: <Episodio>
   ---
+  + Temporada(_numTemporada: int)
   + reproducir(): void
   + mostrarInfo(): void
   + calcularDuracionTotal(): int
