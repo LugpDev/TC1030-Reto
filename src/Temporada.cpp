@@ -42,7 +42,7 @@ void Temporada::eliminarEpisodio(string titulo)
     {
       delete *it;
       episodios.erase(it);
-      break;
+      return;
     }
   }
 
