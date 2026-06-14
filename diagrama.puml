@@ -130,9 +130,6 @@ Temporada "1" *-- "*" Episodio
 ' Dependencia
 Contenido ..> Genero
 GestorContenidos ..> Genero
-Pelicula ..> Genero
-Serie ..> Genero
-Juego ..> Genero
 Juego ..> Dificultad
 
 @enduml
